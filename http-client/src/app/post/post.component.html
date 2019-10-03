@@ -1,0 +1,35 @@
+<div style="text-align: center" >
+    <h3>List of Posts</h3>
+</div>
+<button type="button" (click)="loadData()" class="btn btn-primary">
+    Show Data
+  </button>
+  <button type="button" (click)="showUserId()" class="btn btn-primary">
+       User ID
+  </button>
+  <button type="button" (click)="showTitle()" class="btn btn-primary">
+      Title
+ </button>
+  <div *ngIf="actionType==1" >
+<ul *ngFor="let list of listOfPost ">
+ <li> UserId : {{list.userId}}</li>
+  <li> id: {{list.id}}</li>
+  <li> title : {{list.title}}</li>
+  <li>body : {{list.body}}</li>
+</ul>
+</div>
+
+<div *ngIf="actionType==2" >
+
+<ul *ngFor="let list of listOfUserId ">
+    <li> UserId : {{list.userId}}</li> 
+   </ul>
+  </div>
+  <div *ngIf="actionType==3" >
+      <ul *ngFor="let list of listOfTitle ">
+      <li> title : {{list.title}}</li> 
+     </ul>
+     </div>
+  
+   
+   
