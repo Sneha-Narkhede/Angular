@@ -15,32 +15,33 @@ export class PostComponent implements OnInit {
   constructor(private pService: PostService) { }
 
   ngOnInit() {
-    
-  }
-
-  loadData(){
-    this.actionType=1
     this.pService.getPostDetail()
     .subscribe(data => {
       this.listOfPost = data
       console.log("list of posts = "+this.listOfPost)
     })
 
+    
+  }
+
+  loadData(){
+    this.actionType=1
+    
   }
   
   showUserId(){
     this.actionType=2
-    this.pService.getPostDetail()
-    .subscribe(data => {
-      this.listOfUserId = data
-      console.log("list of posts = "+this.listOfUserId)
-  })
+    // this.pService.getPostDetail()
+    // .subscribe(data => {
+    //   this.listOfUserId = data
+    //   console.log("list of posts = "+this.listOfUserId)
+  // })
 }
 showTitle(){
   this.actionType=3
-  this.pService.getPostDetail()
-  .subscribe(data=>{
-    this.listOfTitle=data})
+  // this.pService.getPostDetail()
+  // .subscribe(data=>{
+  //   this.listOfTitle=data})
 }
 
 }
