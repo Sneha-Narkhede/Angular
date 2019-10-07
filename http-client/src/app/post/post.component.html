@@ -1,35 +1,66 @@
-<div style="text-align: center" >
-    <h3>List of Posts</h3>
+<div style="text-align: center">
+  <h3>List of Posts</h3>
 </div>
+<form class="example" action="">
+  <input type="text" placeholder="Search.." name="search">
+  <button (click)="onDataSearch()" type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+
 <button type="button" (click)="loadData()" class="btn btn-primary">
-    Show Data
-  </button>
-  <button type="button" (click)="showUserId()" class="btn btn-primary">
-       User ID
-  </button>
-  <button type="button" (click)="showTitle()" class="btn btn-primary">
-      Title
- </button>
-  <div *ngIf="actionType==1" >
-<ul *ngFor="let list of listOfPost ">
- <li> UserId : {{list.userId}}</li>
-  <li> id: {{list.id}}</li>
-  <li> title : {{list.title}}</li>
-  <li>body : {{list.body}}</li>
-</ul>
+  Show Data
+</button>
+<button type="button" (click)="showUserId()" class="btn btn-primary">
+  User ID
+</button>
+<button type="button" (click)="showTitle()" class="btn btn-primary">
+  Title
+</button>
+<!-- <div *ngIf="actionType==1">
+  <ul *ngFor="let list of listOfPost ">
+    <li> UserId : {{list.userId}}</li>
+    <li> id: {{list.id}}</li>
+    <li> title : {{list.title}}</li>
+    <li>body : {{list.body}}</li>
+  </ul>
 </div>
 
-<div *ngIf="actionType==2" >
+<div *ngIf="actionType==2">
 
-<ul *ngFor="let list of listOfPost ">
-    <li> UserId : {{list.userId}}</li> 
-   </ul>
+  <ul *ngFor="let list of listOfPost ">
+    <li> UserId : {{list.userId}}</li>
+  </ul>
+</div>
+<div *ngIf="actionType==3">
+  <ul *ngFor="let list of listOfPost ">
+    <li> title : {{list.title}}</li>
+  </ul> 
+</div> -->
+
+<!-- {{listOfPost|json}} -->
+
+<div *ngFor="let list of listOfPost ">
+  <div [ngSwitch]="actionType">
+    <div *ngSwitchCase="1">
+      <li> UserId: {{list.userId}}</li>
+      <li> id: {{list.id}}</li>
+      <li> title : {{list.title}}</li>
+      <li>body : {{list.body}}</li>
+    </div>
+    <div *ngSwitchCase="2">
+      <li> UserId : {{list.userId}}</li>
+    </div>
+    <div *ngSwitchCase="3">
+      <li> title : {{list.title}}</li>
+    </div>
+    <div *ngSwitchCase="5">
+      <li>Default</li>
+    </div>
   </div>
-  <div *ngIf="actionType==3" >
-      <ul *ngFor="let list of listOfPost ">
-      <li> title : {{list.title}}</li> 
-     </ul>
-     </div>
-  
-   
-   
+</div>
+
+<div *ngIf="actionType==4">
+  <!-- <li> searchResult : {{searchResult.title}}</li> -->
+  {{searchResult|json}}
+  <!-- <li>searchResult : {{searchResult.title}}</li> -->
+</div>
