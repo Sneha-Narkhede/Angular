@@ -2,8 +2,8 @@
   <h3>List of Posts</h3>
 </div>
 <form class="example" action="">
-  <input type="text" placeholder="Search.." name="search">
-  <button (click)="onDataSearch()" type="submit"><i class="fa fa-search"></i></button>
+  <input #InputData type="text"  placeholder="Search.." name="search">
+  <button (click)="onDataSearch(InputData.value)" type="submit"><i class="fa fa-search"></i></button>
 </form>
 
 

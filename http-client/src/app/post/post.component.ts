@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from '../post.service';
 
 @Component({
@@ -53,14 +53,14 @@ export class PostComponent implements OnInit {
     console.log("title data");
 
   }
-  onDataSearch() {
+  onDataSearch(data) {
     console.log("Search is done");
     this.actionType = 4;
     // this.searchResult = this.listOfPost[0];
     for (let i=0; i<this.listOfPost.length; i++){
       let id = this.listOfPost[i]['id'];
 
-      if(id==5){
+      if(id==data){
         this.searchResult = this.listOfPost[i];
         break;
       }
