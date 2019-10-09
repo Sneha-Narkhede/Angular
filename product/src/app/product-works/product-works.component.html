@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <form [formGroup]="ProductForm">
+
+        <div class="form-group">
+            <label>Product Name</label>
+            <input [class.is-invalid] = "ProductForm.get('productName').invalid && ProductForm.get('productName').touched" type="text" class="form-control" formControlName="productName">
+            <small [class.d-none]="ProductForm.get('productName').valid || ProductForm.get('productName').untouched" class="text-danger">Minimun 5 number is required</small>
+        </div>
+
+        <div class="form-group">
+            <label>Product Price</label>
+            <input [class.is-invalid] = "ProductForm.get('productPrice').invalid && ProductForm.get('productPrice').touched" type="number" class="form-control" formControlName="productPrice">
+            <small [class.d-none]="ProductForm.get('productPrice').valid || ProductForm.get('productPrice').untouched" class="text-danger">price is required</small>
+        </div>
+
+        <div class="form-group">
+            <button type="button" (click)="onSubmit()" class="btn btn-primary">Submit</button>
+        </div>
+
+    </form>
+</div>
