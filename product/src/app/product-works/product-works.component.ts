@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
+import { ProductService } from '../product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-works',
@@ -8,7 +10,7 @@ import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 })
 export class ProductWorksComponent implements OnInit {
 
-  constructor(private fbobj:FormBuilder ) {
+  constructor(private fbobj:FormBuilder, private prodService:ProductService, private router:Router) {
     
   } 
   ProductForm = this.fbobj.group({
@@ -19,11 +21,10 @@ export class ProductWorksComponent implements OnInit {
     
   }
   onSubmit(){
-    console.log(this.ProductForm.value);
+    this.prodService.addProduct(this.ProductForm.value)
+    //console.log(this.prodService);
     
-    
-    console.log("submit");
-    
+  
   }
 
 
